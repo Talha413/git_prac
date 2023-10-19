@@ -256,6 +256,7 @@ class _SignInPageState extends State<SignInPage> {
                                       ),
                                     ],
                                   )),
+
                               SizedBox(
                                 height: MediaQuery.of(context).size.height / 120,
                               ),
