@@ -249,79 +249,7 @@ class _SignInPageState extends State<SignInPage> {
                                                   fontSize: _width / 26,
                                                   fontWeight: FontWeight.bold),
                                             )),
-                                      SizedBox(
-                                        height:
-                                        MediaQuery.of(context).size.height / 80,
-                                      ),
-                                      Align(
-                                        alignment: Alignment.topLeft,
-                                        child: Text(
-                                          'Password',
-                                          style: TextStyle(
-                                              fontSize: _width * 0.04,
-                                              fontWeight: FontWeight.bold,
-                                              color: Color(0xff334257)),
-                                        ),
-                                      ),
-                                      SizedBox(
-                                        height:
-                                        MediaQuery.of(context).size.height / 100,
-                                      ),
-                                      Container(
-                                        margin: EdgeInsets.symmetric(
-                                            horizontal: _width * (2 / 360),
-                                            vertical: _height * (2 / 600)),
-                                        decoration: BoxDecoration(
-                                            borderRadius: BorderRadius.circular(10),
-                                            border: Border.all(
-                                                color: passwordError.isEmpty
-                                                    ? Color(0xFF069DD8)
-                                                    : Colors.red,
-                                                width: 2)),
-                                        height: _height * (35 / 600),
-                                        child: TextFormField(
-                                          // controller: _phoneController,
-                                          focusNode: _passWordFocus,
-                                          autovalidateMode:
-                                          AutovalidateMode.onUserInteraction,
-                                          keyboardType: TextInputType.visiblePassword,
-                                          textInputAction: TextInputAction.done,
-                                          decoration: InputDecoration(
-                                            filled: true,
-                                            fillColor: Color(0xffe0e0e0),
-                                            hintText: " Enter Password",
-                                            hintStyle: TextStyle(
-                                              fontSize: _width * 0.015 +_height*0.010,
-                                              fontWeight: FontWeight.bold,
 
-                                            ),
-                                            border: OutlineInputBorder(
-                                              borderRadius: BorderRadius.circular(10),
-                                              borderSide: BorderSide.none,
-                                            ),
-                                          ),
-                                          onChanged: (value) {
-                                            setState(() {
-                                              password = value;
-                                              passwordError = '';
-                                            });
-                                            _validatePasswordFields();
-                                          },
-                                          onEditingComplete: () {
-                                            _passWordFocus.unfocus();
-                                          },
-                                        ),
-                                      ),
-                                      if (passwordError.isNotEmpty)
-                                        Align(
-                                            alignment: Alignment.centerLeft,
-                                            child: Text(
-                                              passwordError!,
-                                              style: TextStyle(
-                                                  color: Colors.red,
-                                                  fontSize: _width / 26,
-                                                  fontWeight: FontWeight.bold),
-                                            )),
                                     ],
                                   )),
                               SizedBox(
