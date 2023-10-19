@@ -183,7 +183,7 @@ class _SignInPageState extends State<SignInPage> {
                                       Align(
                                         alignment: Alignment.topLeft,
                                         child: Text(
-                                          'Mobile',
+                                          'Password',
                                           style: TextStyle(
                                               fontSize: _width * 0.04,
                                               fontWeight: FontWeight.bold,
@@ -192,7 +192,7 @@ class _SignInPageState extends State<SignInPage> {
                                       ),
                                       SizedBox(
                                         height:
-                                        MediaQuery.of(context).size.height / 120,
+                                        MediaQuery.of(context).size.height / 100,
                                       ),
                                       Container(
                                         margin: EdgeInsets.symmetric(
@@ -201,31 +201,27 @@ class _SignInPageState extends State<SignInPage> {
                                         decoration: BoxDecoration(
                                             borderRadius: BorderRadius.circular(10),
                                             border: Border.all(
-                                                color: phoneError.isEmpty
+                                                color: passwordError.isEmpty
                                                     ? Color(0xFF069DD8)
                                                     : Colors.red,
                                                 width: 2)),
                                         height: _height * (35 / 600),
                                         child: TextFormField(
                                           // controller: _phoneController,
-                                          focusNode: _phoneFocus,
-                                          keyboardType: TextInputType.phone,
-                                          textInputAction: TextInputAction.next,
-                                          onEditingComplete: () {
-                                            _focusChange(
-                                                context, _phoneFocus, _passWordFocus);
-                                          },
+                                          focusNode: _passWordFocus,
                                           autovalidateMode:
                                           AutovalidateMode.onUserInteraction,
+                                          keyboardType: TextInputType.visiblePassword,
+                                          textInputAction: TextInputAction.done,
                                           decoration: InputDecoration(
                                             filled: true,
                                             fillColor: Color(0xffe0e0e0),
-                                            hintText: " Enter Mobile  ",
+                                            hintText: " Enter Password",
                                             hintStyle: TextStyle(
                                               fontSize: _width * 0.015 +_height*0.010,
                                               fontWeight: FontWeight.bold,
+
                                             ),
-                                            //border: BorderRadius.circular(10),
                                             border: OutlineInputBorder(
                                               borderRadius: BorderRadius.circular(10),
                                               borderSide: BorderSide.none,
@@ -233,18 +229,21 @@ class _SignInPageState extends State<SignInPage> {
                                           ),
                                           onChanged: (value) {
                                             setState(() {
-                                              phone = value;
-                                              phoneError = '';
+                                              password = value;
+                                              passwordError = '';
                                             });
-                                            _validatePhoneFields();
+                                            _validatePasswordFields();
+                                          },
+                                          onEditingComplete: () {
+                                            _passWordFocus.unfocus();
                                           },
                                         ),
                                       ),
-                                      if (phoneError.isNotEmpty)
+                                      if (passwordError.isNotEmpty)
                                         Align(
                                             alignment: Alignment.centerLeft,
                                             child: Text(
-                                              phoneError!,
+                                              passwordError!,
                                               style: TextStyle(
                                                   color: Colors.red,
                                                   fontSize: _width / 26,
