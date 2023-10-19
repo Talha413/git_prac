@@ -183,6 +183,169 @@ class _SignInPageState extends State<SignInPage> {
                                       Align(
                                         alignment: Alignment.topLeft,
                                         child: Text(
+                                          'Mobile',
+                                          style: TextStyle(
+                                              fontSize: _width * 0.04,
+                                              fontWeight: FontWeight.bold,
+                                              color: Color(0xff334257)),
+                                        ),
+                                      ),
+                                      SizedBox(
+                                        height:
+                                        MediaQuery.of(context).size.height / 120,
+                                      ),
+                                      Container(
+                                        margin: EdgeInsets.symmetric(
+                                            horizontal: _width * (2 / 360),
+                                            vertical: _height * (2 / 600)),
+                                        decoration: BoxDecoration(
+                                            borderRadius: BorderRadius.circular(10),
+                                            border: Border.all(
+                                                color: phoneError.isEmpty
+                                                    ? Color(0xFF069DD8)
+                                                    : Colors.red,
+                                                width: 2)),
+                                        height: _height * (35 / 600),
+                                        child: TextFormField(
+                                          // controller: _phoneController,
+                                          focusNode: _phoneFocus,
+                                          keyboardType: TextInputType.phone,
+                                          textInputAction: TextInputAction.next,
+                                          onEditingComplete: () {
+                                            _focusChange(
+                                                context, _phoneFocus, _passWordFocus);
+                                          },
+                                          autovalidateMode:
+                                          AutovalidateMode.onUserInteraction,
+                                          decoration: InputDecoration(
+                                            filled: true,
+                                            fillColor: Color(0xffe0e0e0),
+                                            hintText: " Enter Mobile  ",
+                                            hintStyle: TextStyle(
+                                              fontSize: _width * 0.015 +_height*0.010,
+                                              fontWeight: FontWeight.bold,
+                                            ),
+                                            //border: BorderRadius.circular(10),
+                                            border: OutlineInputBorder(
+                                              borderRadius: BorderRadius.circular(10),
+                                              borderSide: BorderSide.none,
+                                            ),
+                                          ),
+                                          onChanged: (value) {
+                                            setState(() {
+                                              phone = value;
+                                              phoneError = '';
+                                            });
+                                            _validatePhoneFields();
+                                          },
+                                        ),
+                                      ),
+                                      if (phoneError.isNotEmpty)
+                                        Align(
+                                            alignment: Alignment.centerLeft,
+                                            child: Text(
+                                              phoneError!,
+                                              style: TextStyle(
+                                                  color: Colors.red,
+                                                  fontSize: _width / 26,
+                                                  fontWeight: FontWeight.bold),
+                                            )),
+                                      // TextFormField(
+                                      //   //maxLength: (_width*0.9).toInt(),
+                                      //   autovalidateMode:
+                                      //       AutovalidateMode.onUserInteraction,
+                                      //   controller: phoneController,
+                                      //
+                                      //   decoration: InputDecoration(
+                                      //       contentPadding: EdgeInsets.symmetric(
+                                      //           horizontal: _width * 0.02,
+                                      //           vertical: _height * 0.01),
+                                      //       filled: true,
+                                      //       fillColor: Color(0xffe0e0e0),
+                                      //       hintText: " Enter Mobile Number ",
+                                      //       enabledBorder: OutlineInputBorder(
+                                      //           borderRadius:
+                                      //               BorderRadius.circular(10),
+                                      //           borderSide: BorderSide(
+                                      //             color: Color(0xff059dd8),
+                                      //           )),
+                                      //       focusedBorder: OutlineInputBorder(
+                                      //           borderRadius:
+                                      //               BorderRadius.circular(10),
+                                      //           borderSide: BorderSide(
+                                      //             color: Colors.blue,
+                                      //           )),
+                                      //       errorBorder: OutlineInputBorder(
+                                      //         borderRadius: BorderRadius.circular(10),
+                                      //         borderSide: BorderSide(
+                                      //           color: Colors.red,
+                                      //         ),
+                                      //       ),
+                                      //       focusedErrorBorder: OutlineInputBorder(
+                                      //           borderRadius:
+                                      //               BorderRadius.circular(10),
+                                      //           borderSide: BorderSide(
+                                      //             color: Colors.red,
+                                      //           )),
+                                      //     errorStyle: TextStyle(
+                                      //       color: Colors.red,
+                                      //       fontSize: _width * 0.035,
+                                      //       fontWeight: FontWeight
+                                      //           .w400, // Customize the error text color
+                                      //     ),
+                                      //   ),
+                                      //
+                                      //   keyboardType: TextInputType.number,
+                                      //   textInputAction: TextInputAction.next,
+                                      //   validator: (value){
+                                      //     final phonePattern = RegExp(r'^(01\d{9}|(?:\+880|880)\d{10})$');
+                                      //     if (value!.isEmpty) {
+                                      //       // setState(() {
+                                      //       //   phoneError = 'Please enter your phone number';
+                                      //       // });
+                                      //       return "Please enter your phone number";
+                                      //     }
+                                      //     else if (phonePattern.hasMatch(value)) {
+                                      //       // setState(() {
+                                      //       //   phoneError = 'Please enter a valid phone number';
+                                      //       // });
+                                      //       return "Please enter a valid phone number";
+                                      //
+                                      //     }
+                                      //     return null;
+                                      //   },
+                                      //   onEditingComplete: () {
+                                      //     if (_formKey.currentState!.validate()) {
+                                      //       //print("Successfull");
+                                      //     } else {}
+                                      //    },
+                                      //   onChanged: (value) {
+                                      //       setState(() {
+                                      //         phone = value;
+                                      //         phoneError = '';
+                                      //       });
+                                      //      //_validatePhoneFields(phone);
+                                      //   },
+                                      //   // validator: validateA,
+
+                                      // ),
+                                      // Padding(
+                                      //   padding: EdgeInsets.symmetric(
+                                      //     horizontal: _width * (9 / 360),
+                                      //     vertical: _height * (3 / 600),
+                                      //   ),
+                                      //   child: Align(
+                                      //       alignment: Alignment.centerLeft,
+                                      //       child: Text(phoneError,
+                                      //           style: TextStyle(color: Colors.red))),
+                                      // ),
+                                      SizedBox(
+                                        height:
+                                        MediaQuery.of(context).size.height / 80,
+                                      ),
+                                      Align(
+                                        alignment: Alignment.topLeft,
+                                        child: Text(
                                           'Password',
                                           style: TextStyle(
                                               fontSize: _width * 0.04,
@@ -249,10 +412,64 @@ class _SignInPageState extends State<SignInPage> {
                                                   fontSize: _width / 26,
                                                   fontWeight: FontWeight.bold),
                                             )),
-                                      SizedBox(
-                                        height:
-                                        MediaQuery.of(context).size.height / 80,
-                                      ),
+                                      // TextFormField(
+                                      //   controller: passwordController,
+                                      //   decoration: InputDecoration(
+                                      //     filled: true
+                                      //     fillColor: Color(0xffe0e0e0),
+                                      //     contentPadding: EdgeInsets.symmetric(
+                                      //         horizontal: _width * 0.02,
+                                      //         vertical: _height * 0.01),
+                                      //     hintText: " Enter Password ",
+                                      //     enabledBorder: OutlineInputBorder(
+                                      //         borderRadius: BorderRadius.circular(10),
+                                      //         borderSide: BorderSide(
+                                      //           color: Color(0xff059dd8),
+                                      //         )),
+                                      //     focusedBorder: OutlineInputBorder(
+                                      //         borderRadius: BorderRadius.circular(10),
+                                      //         borderSide: BorderSide(
+                                      //           color: Colors.blue,
+                                      //         )),
+                                      //     errorBorder: OutlineInputBorder(
+                                      //       borderRadius: BorderRadius.circular(10),
+                                      //       borderSide: BorderSide(
+                                      //         color: Colors.red,
+                                      //       ),
+                                      //     ),
+                                      //     focusedErrorBorder: OutlineInputBorder(
+                                      //         borderRadius: BorderRadius.circular(10),
+                                      //         borderSide: BorderSide(
+                                      //           color: Colors.red,
+                                      //         )),
+                                      //     errorStyle: TextStyle(
+                                      //       color: Colors.red,
+                                      //       fontSize: _width * 0.035,
+                                      //       fontWeight: FontWeight
+                                      //           .w400, // Customize the error text color
+                                      //     ),
+                                      //   ),
+                                      //   keyboardType: TextInputType.visiblePassword,
+                                      //   //validator: validateA,
+                                      //   validator: (value) {
+                                      //     if (value == null || value.isEmpty) {
+                                      //        return "This filed must not be empty";
+                                      //     }
+                                      //     if (value.length < 8) {
+                                      //       return " Password must be minimum 8 digit";
+                                      //     }
+                                      //     return null;
+                                      //   },
+                                      //   textInputAction: TextInputAction.done,
+                                      //   onFieldSubmitted: (value) {
+                                      //     _passWordFocus.unfocus();
+                                      //   },
+                                      //   onEditingComplete: () {
+                                      //     if (_formKey.currentState!.validate()) {
+                                      //       //print("Successfull");
+                                      //     } else {}
+                                      //   },
+                                      // ),
                                     ],
                                   )),
 
